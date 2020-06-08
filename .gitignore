@@ -1,0 +1,9 @@
+.idea
+Pipfile
+Pipfile.lock
+.DS_Store
+**/.DS_Store
+logs
+video
+__pycache__
+**/__pycache__
