@@ -6,7 +6,6 @@ __all__ = ["helper"]
 
 from tool_yy import Helper
 
-from app.services.download_fitness import DownloadFitness
 from .log import Log
 from .tools.utils import get_file_name
 

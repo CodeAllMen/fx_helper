@@ -7,3 +7,4 @@ logs
 video
 __pycache__
 **/__pycache__
+app/config/secure.py
