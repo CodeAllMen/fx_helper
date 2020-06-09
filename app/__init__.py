@@ -4,17 +4,23 @@ Create by yy on 2020/3/10
 
 __all__ = ["helper"]
 
+from psql_yy import PsqlDB
 from tool_yy import Helper
 
 from .log import Log
+from .services.translate import Translate
 from .tools.utils import get_file_name
 
 
 class HelperInstance(Helper):
-    __slots__ = ("redis", "log")
+    __slots__ = ("redis", "log", "psql")
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+
+    @property
+    def translate(self):
+        return Translate(self.psql, self.log)
 
     # @property
     # def download_fitness(self):
@@ -31,6 +37,8 @@ def create_helper():
         file_name=get_file_name()
     )
     helper_instance.log = Log(file_name, helper_instance.config["DEBUG"])
+
+    PsqlDB().init_helper(helper_instance)
 
     return helper_instance
 
