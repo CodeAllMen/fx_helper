@@ -8,7 +8,9 @@ from psql_yy import PsqlDB
 from tool_yy import Helper
 
 from .log import Log
+from .services.read_video_2_psql import ReadVideo2Psql
 from .services.translate import Translate
+from .spiders.get_clinkclick_game import GetClinkClickGame
 from .tools.utils import get_file_name
 
 
@@ -21,6 +23,14 @@ class HelperInstance(Helper):
     @property
     def translate(self):
         return Translate(self.psql, self.log)
+
+    @property
+    def read_video_2_psql(self):
+        return ReadVideo2Psql(self.psql, self.log)
+
+    @property
+    def get_clinkclick_game(self):
+        return GetClinkClickGame(self.init_db)
 
     # @property
     # def download_fitness(self):

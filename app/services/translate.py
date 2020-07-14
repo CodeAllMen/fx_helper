@@ -74,7 +74,7 @@ class Translate(object):
         """
         return self.db.select({
             "table": self.table,
-            "condition": ["{column}!=''".format(column=self.dest_column)]
+            # "condition": ["{column}!=''".format(column=self.dest_column)]
         }, is_close_db=False)
 
     def get_info(self, argv):
